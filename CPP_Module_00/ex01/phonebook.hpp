@@ -6,7 +6,7 @@
 /*   By: yousef <yousef@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/24 06:32:09 by yousef            #+#    #+#             */
-/*   Updated: 2025/03/24 07:06:14 by yousef           ###   ########.fr       */
+/*   Updated: 2025/04/21 09:46:37 by yousef           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 #include <string>
 #include <iomanip>
 #include <cstdlib>
+#include <limits>
 #include "contact.hpp"
 
 class PhoneBook{

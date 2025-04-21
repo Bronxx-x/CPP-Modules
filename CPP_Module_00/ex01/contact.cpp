@@ -6,7 +6,7 @@
 /*   By: yousef <yousef@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/24 06:09:48 by yousef            #+#    #+#             */
-/*   Updated: 2025/03/24 07:20:09 by yousef           ###   ########.fr       */
+/*   Updated: 2025/04/21 09:52:26 by yousef           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,5 +45,13 @@ void	Contact::get_contact(int index)const
             std::cout << std::setw(10) << info[i] << "|";
     }
     std::cout << std::endl;
+    return ;
+}
+
+void	Contact::get_fullcontact(int index)const
+{
+    std::cout << "Contact " << index << ":" << std::endl;
+    for (int i = 0; i < 5; i++)
+        std::cout << fields[i] << ": " << info[i] << std::endl;
     return ;
 }
