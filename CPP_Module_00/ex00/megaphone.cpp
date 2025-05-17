@@ -6,38 +6,28 @@
 /*   By: yousef <yousef@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/20 02:37:26 by yousef            #+#    #+#             */
-/*   Updated: 2025/03/20 02:40:13 by yousef           ###   ########.fr       */
+/*   Updated: 2025/05/17 19:48:41 by yousef           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
+#include <cctype>
 
-int     toupp(char c)
+int main(int argc, char **argv)
 {
-    if (c >= 'a' && c <= 'z')
-        return (c - 32);
-    return (c);
-}
-
-void    megaphone(char *str)
-{
-    int i = 0;
-    while (str[i])
-    {
-        std::cout << (char)toupp(str[i]);
-        i++;
-    }
-}
-
-int     main(int ac, char **av)
-{
-    if (ac > 1)
-    {
-        for (int i = 1; i < ac; i++)
-            megaphone(av[i]);
-    }
-    else
-        std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *";
-    std::cout << std::endl;
-    return (0);
+	if (argc > 1)
+	{
+		for (int i = 1; i < argc; i++)
+		{
+			for (int j = 0; argv[i][j] != '\0'; j++)
+				argv[i][j] = (char)toupper(argv[i][j]);
+			std::cout << argv[i];
+			if (argv[i] != NULL)
+				std::cout << " ";
+		}
+		std::cout << std::endl;
+	}
+	else
+		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" << std::endl;
+	return (0);
 }
