@@ -1,21 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   phonebook.cpp                                      :+:      :+:    :+:   */
+/*   Phonebook.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yousef <yousef@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/24 06:48:29 by yousef            #+#    #+#             */
-/*   Updated: 2025/04/21 09:55:14 by yousef           ###   ########.fr       */
+/*   Updated: 2025/05/17 21:19:51 by yousef           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "phonebook.hpp"
+#include "Phonebook.hpp"
 
 
 PhoneBook::PhoneBook(void)
 {
     index = 0;
+    overindex = 0;
     full = false;
     return ;
 }
@@ -28,14 +29,23 @@ void	PhoneBook::set_info(void)
     if (index == 8)
     {
         full = true;
-        index = 0;
+        contacts[overindex].clear_contact();
+        if (overindex == 0)
+        std::cout << "\033[31mPhonebook is full. Reseting the first contact.\033[0m" << std::endl;
     }
-    if (contacts[index].set_contact())
-        index++;
+    if (contacts[overindex].set_contact())
+    {
+        overindex++;
+        if (overindex == 8)
+            overindex = 0;
+        if (!full)
+            index++;
+    }
     return ;
 }
 void	PhoneBook::get_info(void)const
 {
+    std::cout << "\033[32mYou can add " << 8 - index << " more contacts.\033[0m" << std::endl;
     if (index == 0)
     {
 		std::cout << "\033[31mPlease add at least one contact before searching.\033[0m" << std::endl;
@@ -49,6 +59,12 @@ void	PhoneBook::get_info(void)const
 
     while (true)
     {
+        if (std::cin.eof() == true)
+		{
+			std::cout << "You Pressed ^D. Exiting phonebook now." << std::endl;
+			std::exit(0);
+		}
+        
         std::cout << "> ";
         std::cin >> selected;
 

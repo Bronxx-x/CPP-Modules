@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   contact.hpp                                        :+:      :+:    :+:   */
+/*   Contact.hpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yousef <yousef@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/24 06:08:59 by yousef            #+#    #+#             */
-/*   Updated: 2025/04/21 09:52:11 by yousef           ###   ########.fr       */
+/*   Updated: 2025/05/17 21:17:16 by yousef           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ class Contact{
 		Contact(void);
 		~Contact(void);
 
+		void clear_contact(void);
 		bool	set_contact();
 		void	get_contact(int index)const;
 		void	get_fullcontact(int index)const;

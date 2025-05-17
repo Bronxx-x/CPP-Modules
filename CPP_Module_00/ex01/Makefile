@@ -6,19 +6,19 @@
 #    By: yousef <yousef@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/03/20 02:44:19 by yousef            #+#    #+#              #
-#    Updated: 2025/03/24 07:10:18 by yousef           ###   ########.fr        #
+#    Updated: 2025/05/17 21:21:19 by yousef           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = phonebook
 
-SRCS = phonebook.cpp \
-		contact.cpp  \
+SRCS = Phonebook.cpp \
+		Contact.cpp  \
 		main.cpp
 OBJS = ${SRCS:.cpp=.o}
 
 CC = c++
-CFLAGS = -Wall -Wextra -Werror -std=c++98
+CFLAGS = -Wall -Wextra -Werror -std=c++98 -g
 
 all: $(NAME)
 
