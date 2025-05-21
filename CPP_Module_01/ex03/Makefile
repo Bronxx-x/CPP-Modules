@@ -6,11 +6,11 @@
 #    By: yousef <yousef@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/27 23:08:23 by yousef            #+#    #+#              #
-#    Updated: 2025/04/27 23:22:25 by yousef           ###   ########.fr        #
+#    Updated: 2025/05/21 02:44:21 by yousef           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = Zombie03
+NAME = Weapon
 
 SRCS = main.cpp HumanA.cpp HumanB.cpp Weapon.cpp
 		

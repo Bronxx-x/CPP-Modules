@@ -6,11 +6,11 @@
 #    By: yousef <yousef@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/25 23:16:07 by yousef            #+#    #+#              #
-#    Updated: 2025/04/26 15:06:58 by yousef           ###   ########.fr        #
+#    Updated: 2025/05/21 02:27:54 by yousef           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = Zombie02
+NAME = brain
 
 SRCS = main.cpp
 		
