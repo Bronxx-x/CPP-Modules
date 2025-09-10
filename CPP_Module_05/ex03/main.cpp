@@ -6,7 +6,7 @@
 /*   By: yousef <yousef@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/22 16:23:41 by yousef            #+#    #+#             */
-/*   Updated: 2025/08/25 22:03:34 by yousef           ###   ########.fr       */
+/*   Updated: 2025/09/07 20:39:36 by yousef           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,60 +14,58 @@
 #include "ShrubberyCreationForm.hpp"
 #include "RobotomyRequestForm.hpp"
 #include "PresidentialPardonForm.hpp"
+#include "Intern.hpp"
 #include <iostream>
 
 int main() {
     try {
-        // Create Bureaucrats
+        // Existing Bureaucrat and Forms tests...
         Bureaucrat low("LowRank", 150);
         Bureaucrat mid("MidRank", 50);
         Bureaucrat high("HighRank", 1);
 
-        std::cout << "\n=== Bureaucrats ===\n";
-        std::cout << low << std::endl;
-        std::cout << mid << std::endl;
-        std::cout << high << std::endl;
-
-        // Create Forms
         ShrubberyCreationForm shrub("garden");
         RobotomyRequestForm robot("Bender");
         PresidentialPardonForm pardon("Marvin");
 
-        std::cout << "\n=== Forms Before Signing ===\n";
-        std::cout << shrub << std::endl;
-        std::cout << robot << std::endl;
-        std::cout << pardon << std::endl;
+        // Signing and execution tests as before
+        low.signForm(shrub);   
+        mid.signForm(shrub);   
+        mid.signForm(robot);   
+        high.signForm(robot);  
+        low.signForm(pardon);  
+        high.signForm(pardon); 
 
-        std::cout << "\n=== Signing Forms ===\n";
-        low.signForm(shrub);   // fail, grade too low
-        mid.signForm(shrub);   // succeed
-        mid.signForm(robot);   // fail
-        high.signForm(robot);  // succeed
-        low.signForm(pardon);  // fail
-        high.signForm(pardon); // succeed
+        mid.executeForm(shrub);   
+        high.executeForm(robot);  
+        high.executeForm(pardon); 
 
-        std::cout << "\n=== Forms After Signing ===\n";
-        std::cout << shrub << std::endl;
-        std::cout << robot << std::endl;
-        std::cout << pardon << std::endl;
+        // === Intern Tests ===
+        std::cout << "\n=== Intern Form Creation Tests ===\n";
+        Intern someIntern;
+        AForm* form1 = someIntern.makeForm("shrubbery creation", "backyard");
+        AForm* form2 = someIntern.makeForm("robotomy request", "Bender");
+        AForm* form3 = someIntern.makeForm("presidential pardon", "Marvin");
+        AForm* formInvalid = someIntern.makeForm("unknown form", "Nobody");
 
-        std::cout << "\n=== Execution Tests ===\n";
-        low.executeForm(shrub);   // fail, grade too low
-        mid.executeForm(shrub);   // succeed, creates "garden_shrubbery"
-
-        mid.executeForm(robot);   // fail, not signed or grade too low
-        high.executeForm(robot);  // succeed, 50% chance success
-
-        mid.executeForm(pardon);  // fail, grade too low
-        high.executeForm(pardon); // succeed, prints pardon message
-
-        std::cout << "\n=== Invalid Forms Creation ===\n";
-        try {
-            ShrubberyCreationForm invalid("invalid_target");
-            // force invalid grades (not actually allowed in constructor)
-        } catch (std::exception &e) {
-            std::cout << "Exception: " << e.what() << std::endl;
+        // Optional: execute forms created by the intern
+        if (form1) {
+            high.signForm(*form1);
+            high.executeForm(*form1);
+            delete form1;
         }
+        if (form2) {
+            high.signForm(*form2);
+            high.executeForm(*form2);
+            delete form2;
+        }
+        if (form3) {
+            high.signForm(*form3);
+            high.executeForm(*form3);
+            delete form3;
+        }
+        if (formInvalid)
+            delete formInvalid;
 
     } catch (std::exception &e) {
         std::cerr << "Unexpected exception: " << e.what() << std::endl;
@@ -76,3 +74,4 @@ int main() {
     std::cout << "\n=== All tests completed ===\n";
     return 0;
 }
+

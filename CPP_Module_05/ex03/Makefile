@@ -6,13 +6,13 @@
 #    By: yousef <yousef@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/08/22 16:23:04 by yousef            #+#    #+#              #
-#    Updated: 2025/08/25 20:08:08 by yousef           ###   ########.fr        #
+#    Updated: 2025/09/07 20:40:14 by yousef           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = form
+NAME = Intern
 
-SRCS = main.cpp Bureaucrat.cpp AForm.cpp ShrubberyCreationForm.cpp RobotomyRequestForm.cpp PresidentialPardonForm.cpp
+SRCS = main.cpp Bureaucrat.cpp AForm.cpp ShrubberyCreationForm.cpp RobotomyRequestForm.cpp PresidentialPardonForm.cpp Intern.cpp
 OBJS = ${SRCS:.cpp=.o}
 
 CXX = c++

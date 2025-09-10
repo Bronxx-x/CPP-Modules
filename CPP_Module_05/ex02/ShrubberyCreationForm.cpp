@@ -6,7 +6,7 @@
 /*   By: yousef <yousef@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/25 20:01:45 by yousef            #+#    #+#             */
-/*   Updated: 2025/08/25 21:12:56 by yousef           ###   ########.fr       */
+/*   Updated: 2025/09/07 20:12:37 by yousef           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,10 @@ std::string ShrubberyCreationForm::getTarget() const
 }
 void ShrubberyCreationForm::execute(const Bureaucrat& executor) const
 {
-    if (!getIsSigned())
+    if (!getIsSigned()){
+        std::cout << "Form not signed, cannot execute." << std::endl;
         throw AForm::GradeTooLowException();
+    }
     if (executor.getGrade() > getGradeToExecute())
         throw AForm::GradeTooLowException();
 

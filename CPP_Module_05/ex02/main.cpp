@@ -6,7 +6,7 @@
 /*   By: yousef <yousef@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/22 16:23:41 by yousef            #+#    #+#             */
-/*   Updated: 2025/08/25 22:03:34 by yousef           ###   ########.fr       */
+/*   Updated: 2025/09/07 20:06:33 by yousef           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,8 @@ int main() {
         std::cout << pardon << std::endl;
 
         std::cout << "\n=== Signing Forms ===\n";
+        shrub.getIsSigned() ? std::cout << "ShrubberyCreationForm is already signed.\n" : std::cout << "ShrubberyCreationForm is not signed yet.\n";
+        //shrub.execute(low);
         low.signForm(shrub);   // fail, grade too low
         mid.signForm(shrub);   // succeed
         mid.signForm(robot);   // fail
@@ -64,12 +66,13 @@ int main() {
         std::cout << "\n=== Invalid Forms Creation ===\n";
         try {
             ShrubberyCreationForm invalid("invalid_target");
-            // force invalid grades (not actually allowed in constructor)
+            invalid.execute(low); // Not signed
         } catch (std::exception &e) {
             std::cout << "Exception: " << e.what() << std::endl;
         }
 
     } catch (std::exception &e) {
+        std::cerr << "Exception: ------------------------"<< std::endl;
         std::cerr << "Unexpected exception: " << e.what() << std::endl;
     }
 
