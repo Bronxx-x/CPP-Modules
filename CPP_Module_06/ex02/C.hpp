@@ -6,7 +6,7 @@
 /*   By: yousef <yousef@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/17 08:10:29 by yousef            #+#    #+#             */
-/*   Updated: 2025/09/17 08:10:39 by yousef           ###   ########.fr       */
+/*   Updated: 2025/09/22 15:13:36 by yousef           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,6 @@
 #include "Base.hpp"
 class C : public Base
 {
-public:
-    virtual ~C() {}
 };
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: yousef <yousef@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/17 08:05:52 by yousef            #+#    #+#             */
-/*   Updated: 2025/09/17 11:25:25 by yousef           ###   ########.fr       */
+/*   Updated: 2025/09/22 15:14:33 by yousef           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,23 @@ void identify(Base* p)
 
 void identify(Base& p)
 {
-    identify(&p);
+    try {
+        (void)dynamic_cast<A&>(p);
+        std::cout << "A" << std::endl;
+        return;
+    } catch (std::exception&) {}
+
+    try {
+        (void)dynamic_cast<B&>(p);
+        std::cout << "B" << std::endl;
+        return;
+    } catch (std::exception&) {}
+
+    try {
+        (void)dynamic_cast<C&>(p);
+        std::cout << "C" << std::endl;
+        return;
+    } catch (std::exception&) {}
 }
 
 

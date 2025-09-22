@@ -1,33 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Serialization.hpp                                  :+:      :+:    :+:   */
+/*   Data.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yousef <yousef@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/13 21:50:50 by yousef            #+#    #+#             */
-/*   Updated: 2025/09/22 15:12:55 by yousef           ###   ########.fr       */
+/*   Created: 2025/09/22 15:12:29 by yousef            #+#    #+#             */
+/*   Updated: 2025/09/22 15:13:13 by yousef           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SERIALIZATION_HPP
-#define SERIALIZATION_HPP
+#ifndef DATA_HPP
+#define DATA_HPP
 
 #include <iostream>
-#include <stdint.h>
-#include <string>
-#include "Data.hpp"
 
-
-class Serialization
+struct Data
 {
-private:
-    Serialization();
-    ~Serialization();
-    Serialization(const Serialization &other);
-    Serialization &operator=(const Serialization &other);
-public:
-    static uintptr_t serialize(Data* ptr);
-    static Data* deserialize(uintptr_t raw);
+    int         n;
+    float       f;
+    std::string str;
 };
+
 #endif
+
