@@ -24,9 +24,14 @@ struct PrintStr {
     void operator()(const std::string &s) const { std::cout << "functor: " << s << '\n'; }
 };
 
+void printChar( char c) { std::cout << "char: " << c + '0' << '\n'; }
+
 int main()
 {
+    void (*fptr)(char c);
+    fptr = &printChar;
     int a[] = {1, 2, 3, 4};
+    iter(a, 4, fptr);
     std::cout << "original a:\n";
     iter(a, 4, printTemplate<int>);     
     iter(a, 4, printIntConst);          
