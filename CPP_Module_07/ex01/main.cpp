@@ -20,9 +20,11 @@ void incInt(int &x) { x += 1; }
 template <typename U>
 void printTemplate(const U &x) { std::cout << "templ: " << x << '\n'; }
 
-struct PrintStr {
-    void operator()(const std::string &s) const { std::cout << "functor: " << s << '\n'; }
-};
+// struct PrintStr {
+//     void operator()(const std::string &s) const {
+//         std::cout << "string: " << s << '\n';
+//     }
+// };
 
 void printChar( char c) { std::cout << "char: " << c + '0' << '\n'; }
 
@@ -44,7 +46,10 @@ int main()
     iter(ca, 3, printIntConst);
 
     std::string s[] = {"one", "two", "three"};
-    iter(s, 3, PrintStr());
-    iter(s, 3, printTemplate<std::string>); 
+    iter(s, 3, printTemplate<std::string>);
+
+    // PrintStr ps;
+    // ps("Hello from functor");
+    // iter(s, 3, PrintStr());    
     return 0;
 }

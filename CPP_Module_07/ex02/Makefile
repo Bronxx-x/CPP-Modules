@@ -16,13 +16,13 @@ SRCS = main.cpp
 OBJS = ${SRCS:.cpp=.o}
 
 CXX = c++
-CXXFLAGS = -Wall -Wextra -Werror -std=c++98
+CXXFLAGS = -Wall -Wextra -Werror -I. -std=c++98
 RM = rm -f
 
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	$(CXX) $(OBJS) $(CXXFLAGS) -o $(NAME)
+	$(CXX) $(OBJS) $(CXXFLAGS)   -o $(NAME)
 
 clean:
 	@$(RM) $(OBJS)
