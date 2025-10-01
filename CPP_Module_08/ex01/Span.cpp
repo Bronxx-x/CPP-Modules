@@ -1,8 +1,18 @@
 
 #include "Span.hpp"
-#include <climits>
 
+
+Span::Span() : max_size(0) {}
 Span::Span(unsigned int n) : max_size(n) {}
+Span::Span(const Span& other) : numbers(other.numbers), max_size(other.max_size) {}
+Span& Span::operator=(const Span& other) {
+    if (this != &other) {
+        numbers = other.numbers;
+        max_size = other.max_size;
+    }
+    return *this;
+}
+Span::~Span() {}
 
 void Span::addNumber(int n) {
     if (numbers.size() >= max_size) {
@@ -35,4 +45,3 @@ int Span::longestSpan() {
     int max_num = *std::max_element(numbers.begin(), numbers.end());
     return max_num - min_num;
 }
-
