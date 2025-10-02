@@ -6,13 +6,13 @@
 #    By: yousef <yousef@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/09/22 15:17:35 by yousef            #+#    #+#              #
-#    Updated: 2025/09/22 15:23:55 by yousef           ###   ########.fr        #
+#    Updated: 2025/10/02 21:41:49 by yousef           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = MutantStack
 
-SRCS = main.cpp MutantStack.cpp
+SRCS = main.cpp
 OBJS = ${SRCS:.cpp=.o}
 
 CXX = c++
