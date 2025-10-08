@@ -14,9 +14,6 @@
 #include "MutantStack.hpp"
 #include <list>
 
-#include <iostream>
-#include "MutantStack.hpp"
-#include <list>
 
 int main()
 {
